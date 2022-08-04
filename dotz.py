@@ -24,6 +24,9 @@ class Dotz:
         self.time_inicio = time()
         self.servico = Service(ChromeDriverManager().install())
         options = Options()
+        options.add_argument("start-maximized")
+        options.add_experimental_option("excludeSwitches", ["enable-automation"])
+        options.add_experimental_option('useAutomationExtension', False)
         options.headless = True
         self.navegador = webdriver.Chrome(options=options,service=self.servico)
 
